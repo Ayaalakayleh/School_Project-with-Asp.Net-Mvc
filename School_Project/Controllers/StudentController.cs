@@ -57,25 +57,16 @@ namespace School_Project.Controllers
             int studentID = maxid + 1;
             return studentID;
         }
-        
+
+       
         public ActionResult Delete(int id) 
         {
-                       
-             var student = studentList.Where(s => s.StudentId == id).FirstOrDefault();
-        
-             return View(student);
-              
-        }
-
-        [HttpPost]
-        public ActionResult Delete(Student std)
-        {
-
-            var student = studentList.Where(s => s.StudentId == std.StudentId).FirstOrDefault();
+            var student = studentList.Where(s => s.StudentId == id).FirstOrDefault();
             studentList.Remove(student);
 
             return RedirectToAction("Index");
-
         }
+
+       
     }
 }

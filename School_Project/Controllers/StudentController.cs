@@ -58,10 +58,10 @@ namespace School_Project.Controllers
             return studentID;
         }
 
-       
-        public ActionResult Delete(int id) 
+        [HttpPost]
+        public ActionResult Delete(Student std) 
         {
-            var student = studentList.Where(s => s.StudentId == id).FirstOrDefault();
+            var student = studentList.Where(s => s.StudentId == std.StudentId).FirstOrDefault();
             studentList.Remove(student);
 
             return RedirectToAction("Index");
